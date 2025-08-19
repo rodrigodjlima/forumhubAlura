@@ -165,4 +165,5 @@ Atualizar tópico → PUT /topicos/{id} com JSON atualizado.
 
 Excluir tópico → DELETE /topicos/{id}.
 
+<img width="500" height="500" alt="Badge-Spring" src="https://github.com/user-attachments/assets/178957d3-3ced-4762-8c59-c8ac110b0286" />
 
