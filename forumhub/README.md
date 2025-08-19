@@ -1,306 +1,200 @@
-🖥️ ForumHub
+🚀 ForumHub API
+Uma API RESTful para um fórum de discussão desenvolvida com Spring Boot, Spring Security e JWT.
 
-ForumHub é uma aplicação de fórum online desenvolvida em Java Spring Boot, com autenticação JWT e gerenciamento completo de usuários.
+📋 Funcionalidades
+✅ Autenticação JWT
 
-🚀 Tecnologias Utilizadas
+✅ CRUD de Tópicos
 
-☕ Java 17+
+✅ Validação de Dados
 
-🌱 Spring Boot 3.5
+✅ Tratamento de Erros
 
-🔒 Spring Security
+✅ Segurança com Spring Security
 
-🗝️ JWT (JSON Web Token)
+✅ Banco de Dados MySQL
 
-🗄️ JPA / Hibernate
+🛠️ Tecnologias
+Java 21
 
-🐬 MySQL
+Spring Boot 3.5.0
 
-📦 Maven
+Spring Security
 
-🎯 Funcionalidades
+JWT (JSON Web Token)
 
-🔑 Autenticação de Usuário
+MySQL
 
-Login via username e senha.
+JPA/Hibernate
 
-Geração de token JWT para autenticação.
+Maven
 
-Rotas protegidas somente para usuários autenticados.
-
-🧑‍💻 Cadastro e Gerenciamento de Usuário
-
-Cadastro de novos usuários.
-
-Listagem de usuários.
-
-Atualização de dados do usuário.
-
-Exclusão de usuário.
-
-🛡️ Segurança
-
-Proteção de rotas via JWT.
-
-Senhas armazenadas de forma segura (recomenda-se BCrypt).
-
-🗂 Estrutura do Projeto
-src/main/java/com/forumhub/
-├─ model/            # Entidades do banco de dados (Usuario.java)
-├─ repository/       # Interfaces JPA (UsuarioRepository.java)
-├─ service/          # Lógica de negócio (UsuarioService.java)
-├─ security/         # JWT, filtros e serviços de autenticação (TokenService.java, JWTFilter.java)
-├─ controller/       # Endpoints REST (AuthController.java, UsuarioController.java)
-└─ config/           # Configurações de segurança (SecurityConfig.java, AuthUserDetailsService.java)
-
-🗄 Configuração do Banco de Dados
-
-No arquivo application.properties:
-
-spring.datasource.url=jdbc:mysql://localhost:3306/forumhub
-spring.datasource.username=root
-spring.datasource.password=1234
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-
-
-Ajuste a URL, usuário e senha conforme seu ambiente.
-
-🔑 Configuração JWT
-security.jwt.secret=MinhaChaveSecretaSuperSegura123
-security.jwt.expiration=3600000  # 1 hora em milissegundos
-
-
-A chave secreta é utilizada para assinatura do token.
-
-▶️ Executando a Aplicação
-
+📦 Instalação
 Clone o repositório:
 
-git clone <URL_DO_REPOSITORIO>
+bash
+git clone <url-do-repositorio>
+cd forumhub
+Configure o banco de dados:
 
+sql
+CREATE DATABASE forumhub;
+Configure as credenciais no arquivo application.properties
 
-Instale dependências e execute:
+Execute a aplicação:
 
-mvn clean install
-mvn spring-boot:run
+bash
+./mvnw spring-boot:run
 
+🔐 Autenticação
+1. Registrar Usuário
+POST http://localhost:8080/auth/register
 
-A aplicação estará disponível em:
+Body:
 
-http://localhost:8080
-
-📋 Endpoints e Testes
-Emoji	Método	Endpoint	Body (JSON)	Autorização	Descrição
-📝	POST	/auth/login	{ "username": "usuario", "password": "123" }	❌ Não	Login e geração de token JWT
-📝	POST	/usuarios	{ "username": "novo_usuario", "password": "123" }	✅ Sim	Cadastro de novo usuário
-🔍	GET	/usuarios	-	✅ Sim	Listar todos os usuários
-🔍	GET	/usuarios/{id}	-	✅ Sim	Buscar usuário por ID
-✏️	PUT	/usuarios/{id}	{ "username": "atualizado", "password": "1234" }	✅ Sim	Atualizar usuário
-🗑️	DELETE	/usuarios/{id}	-	✅ Sim	Deletar usuário
-
-Para endpoints protegidos:
-Adicione no Header:
-
-Authorization: Bearer <token>
-
-🧪 Testando no Postman ou Insomnia
-
-Faça login usando /auth/login para gerar o token JWT.
-
-Para todas as requisições protegidas, adicione no Header:
-
-Authorization: Bearer <token>
-
-
-Teste todos os endpoints usando os métodos indicados pelos emojis na tabela.
-
-🌈 Representação Visual do Fluxo
-[Usuário]
-│
-│ POST /auth/login
-▼
-[Token JWT gerado]
-│
-│ Usar token nos Headers
-▼
-[Endpoints Protegidos: /usuarios/...]
-│
-├─ 🔍 GET - Listar / Buscar
-├─ 📝 POST - Criar
-├─ ✏️ PUT - Atualizar
-└─ 🗑️ DELETE - Remover
-
-⚠️ Observações
-
-As senhas devem ser armazenadas de forma segura (recomenda-se BCrypt).
-
-Ajuste a chave JWT (security.jwt.secret) antes de usar em produção.
-
-Rotas protegidas exigem token JWT válido.
-
-Se você quiser, posso criar também um esquema visual em imagem mostrando como o token circula entre front-end, back-end e banco, para colocar direto no README do GitHub, tornando ainda mais didático.
-
-Quer que eu faça isso?
-
-Você disse:
-Pode refazer por favor mostrando também como usar funções no Postman ou Insomnia para topicos
-O ChatGPT disse:
-
-Ótimo ponto! 👏
-Você está me dizendo que além da parte de usuários/autenticação, também tem a parte de tópicos do fórum (CRUD de tópicos). Então vamos refazer o README completo incluindo as instruções de como usar tudo no Postman/Insomnia (usuários + tópicos).
-
-🖥️ ForumHub
-
-ForumHub é uma aplicação de fórum online desenvolvida em Java Spring Boot, com autenticação JWT e gerenciamento completo de usuários e tópicos.
-
-🚀 Tecnologias Utilizadas
-
-☕ Java 17+
-
-🌱 Spring Boot 3.5
-
-🔒 Spring Security
-
-🗝️ JWT (JSON Web Token)
-
-🗄️ JPA / Hibernate
-
-🐬 MySQL
-
-📦 Maven
-
-🎯 Funcionalidades
-🔑 Autenticação
-
-Login via username e senha.
-
-Geração de token JWT.
-
-Rotas protegidas (usuário deve estar autenticado).
-
-👥 Usuários
-
-Criar usuário.
-
-Listar todos usuários.
-
-Buscar usuário por ID.
-
-Atualizar usuário.
-
-Deletar usuário.
-
-📝 Tópicos
-
-Criar novo tópico.
-
-Listar todos os tópicos.
-
-Buscar tópico por ID.
-
-Atualizar tópico.
-
-Deletar tópico.
-
-🗂 Estrutura do Projeto
-src/main/java/com/forumhub/
-├─ model/            # Entidades (Usuario.java, Topico.java)
-├─ repository/       # Interfaces JPA (UsuarioRepository.java, TopicoRepository.java)
-├─ service/          # Lógica de negócio (UsuarioService.java, TopicoService.java)
-├─ security/         # JWT e autenticação (TokenService.java, JWTFilter.java)
-├─ controller/       # Endpoints REST (AuthController.java, UsuarioController.java, TopicoController.java)
-└─ config/           # Configurações (SecurityConfig.java, AuthUserDetailsService.java)
-
-📋 Endpoints
-🔑 Autenticação
-Método	Endpoint	Body (JSON)	Autorização	Descrição
-📝 POST	/auth/login	{ "username": "usuario", "password": "123" }	❌ Não	Gera um token JWT
-👥 Usuários
-Método	Endpoint	Body (JSON)	Autorização	Descrição
-📝 POST	/usuarios	{ "username": "novo", "password": "123" }	✅ Sim	Criar usuário
-🔍 GET	/usuarios	-	✅ Sim	Listar todos usuários
-🔍 GET	/usuarios/1	-	✅ Sim	Buscar usuário por ID
-✏️ PUT	/usuarios/1	{ "username": "editado", "password": "1234" }	✅ Sim	Atualizar usuário
-🗑 DELETE	/usuarios/1	-	✅ Sim	Deletar usuário
-📝 Tópicos
-Método	Endpoint	Body (JSON)	Autorização	Descrição
-📝 POST	/topicos	{ "titulo": "Primeiro Tópico", "mensagem": "Conteúdo do tópico", "autorId": 1 }	✅ Sim	Criar tópico
-🔍 GET	/topicos	-	✅ Sim	Listar todos tópicos
-🔍 GET	/topicos/1	-	✅ Sim	Buscar tópico por ID
-✏️ PUT	/topicos/1	{ "titulo": "Atualizado", "mensagem": "Novo conteúdo" }	✅ Sim	Atualizar tópico
-🗑 DELETE	/topicos/1	-	✅ Sim	Deletar tópico
-🧪 Testando no Postman ou Insomnia
-🔑 Passo 1 – Login
-
-Método: POST
-
-URL: http://localhost:8080/auth/login
-
-Body (JSON):
-
+json
 {
-"username": "usuario",
-"password": "123"
+  "username": "seu_usuario",
+  "password": "sua_senha"
+}
+2. Login
+POST http://localhost:8080/auth/login
+
+Body:
+
+json
+{
+  "username": "seu_usuario",
+  "password": "sua_senha"
+}
+Response:
+
+json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+📝 Endpoints dos Tópicos
+
+3. Listar Todos os Tópicos
+
+GET http://localhost:8080/topicos
+
+Headers:
+
+text
+Authorization: Bearer <seu_token_jwt>
+
+4. Criar Novo Tópico
+
+POST http://localhost:8080/topicos
+
+Headers:
+
+text
+Authorization: Bearer <seu_token_jwt>
+Content-Type: application/json
+Body:
+
+json
+{
+  "titulo": "Dúvida sobre Spring Boot",
+  "mensagem": "Como configurar o JWT corretamente?",
+  "estado": "ABERTO",
+  "autor": "seu_usuario",
+  "curso": "Java"
 }
 
+exemplo testado.:
 
-Resposta esperada:
+<img width="1465" height="605" alt="image" src="https://github.com/user-attachments/assets/4c1ff161-59d4-4a49-93b9-d57bb0b3ee16" />
 
+
+5. Atualizar Tópico
+PUT http://localhost:8080/topicos/{id}
+
+Headers:
+
+text
+Authorization: Bearer <seu_token_jwt>
+Content-Type: application/json
+Body:
+
+json
 {
-"token": "eyJhbGciOiJIUzI1NiJ9..."
+  "titulo": "Título atualizado",
+  "mensagem": "Mensagem atualizada",
+  "estado": "FECHADO",
+  "autor": "seu_usuario",
+  "curso": "Java"
 }
+6. Deletar Tópico
+DELETE http://localhost:8080/topicos/{id}
 
-🔑 Passo 2 – Usar Token JWT
+Headers:
 
-Copie o valor do "token" retornado no login.
+text
+Authorization: Bearer <seu_token_jwt>
+7. Health Check
+GET http://localhost:8080/ping
 
-Em qualquer requisição protegida, adicione no Header:
+Response:
 
-Authorization: Bearer <TOKEN_AQUI>
+text
+pong
 
-👥 Testando Usuários no Postman/Insomnia
+🎯 Exemplo de Fluxo no Insomnia/Postman
 
-Criar usuário → POST /usuarios com JSON no body.
+Registrar usuário → /auth/register
 
-Listar usuários → GET /usuarios.
+Fazer login → /auth/login (copie o token)
 
-Buscar usuário → GET /usuarios/{id}.
+Configurar header de autenticação:
 
-Atualizar → PUT /usuarios/{id} com JSON atualizado.
+text
+Authorization: Bearer <token_obtido_no_login>
+Criar tópico → /topicos (POST)
 
-Excluir → DELETE /usuarios/{id}.
+Listar tópicos → /topicos (GET)
 
-📝 Testando Tópicos no Postman/Insomnia
+Testar health check → /ping (GET)
 
-Criar tópico → POST /topicos com JSON no body.
+⚙️ Configuração
+application.properties
+properties
+spring.datasource.url=jdbc:mysql://localhost:3306/forumhub
+spring.datasource.username=seu_usuario
+spring.datasource.password=sua_senha
+security.jwt.secret=sua_chave_secreta_super_segura
+security.jwt.expiration=3600000
 
-Listar tópicos → GET /topicos.
+🐛 Troubleshooting
+Problema: Erro de CORS no Insomnia/Postman
 
-Buscar tópico → GET /topicos/{id}.
+Solução: A API já está configurada com CORS, certifique-se de usar o header Authorization corretamente.
 
-Atualizar tópico → PUT /topicos/{id} com JSON atualizado.
+Problema: Erro 401 Unauthorized
+Solução: Verifique se o token JWT está válido e no formato Bearer <token>
 
-Excluir tópico → DELETE /topicos/{id}.
+Problema: Erro de conexão com banco
+Solução: Verifique se o MySQL está rodando e as credenciais estão corretas.
 
-🌈 Fluxo Visual
-[Usuário]
-│
-│ POST /auth/login
-▼
-[Token JWT gerado]
-│
-│ Usar token nos Headers
-▼
-[Endpoints Protegidos]
-├─ 👥 Usuários
-│   ├─ 📝 POST /usuarios
-│   ├─ 🔍 GET /usuarios
-│   ├─ ✏️ PUT /usuarios/{id}
-│   └─ 🗑 DELETE /usuarios/{id}
-│
-└─ 📝 Tópicos
-├─ 📝 POST /topicos
-├─ 🔍 GET /topicos
-├─ ✏️ PUT /topicos/{id}
-└─ 🗑 DELETE /topicos/{id}
+📊 Status Codes
+
+200 - Sucesso
+
+201 - Criado com sucesso
+
+400 - Dados inválidos
+
+401 - Não autorizado
+
+404 - Recurso não encontrado
+
+409 - Conflito (dados duplicados)
+
+500 - Erro interno do servidor
+
+📧 Contato
+
+rodrigodjlima@hotmail.com
+
