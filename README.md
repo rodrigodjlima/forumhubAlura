@@ -38,6 +38,15 @@ Atualização de dados do usuário.
 
 Exclusão de usuário.
 
+Cadastro de novos topicos.
+
+Listagem de topicos.
+
+Atualização de dados dos topicos.
+
+Exclusão de topicos.
+
+
 🛡️ Segurança
 
 Proteção de rotas via JWT.
@@ -155,4 +164,5 @@ Buscar tópico → GET /topicos/{id}.
 Atualizar tópico → PUT /topicos/{id} com JSON atualizado.
 
 Excluir tópico → DELETE /topicos/{id}.
+
 
