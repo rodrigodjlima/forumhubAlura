@@ -32,18 +32,18 @@ Maven
 📦 Instalação
 Clone o repositório:
 
-bash
+
 git clone <url-do-repositorio>
 cd forumhub
 Configure o banco de dados:
 
-sql
+sql (IMPORTANTE)
 CREATE DATABASE forumhub;
 Configure as credenciais no arquivo application.properties
 
 Execute a aplicação:
 
-bash
+
 ./mvnw spring-boot:run
 
 🔐 Autenticação
