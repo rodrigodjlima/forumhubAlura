@@ -2,6 +2,7 @@
 Uma API RESTful para um fórum de discussão desenvolvida com Spring Boot, Spring Security e JWT.
 
 📋 Funcionalidades
+
 ✅ Autenticação JWT
 
 ✅ CRUD de Tópicos
@@ -73,6 +74,8 @@ json
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 }
+
+
 📝 Endpoints dos Tópicos
 
 3. Listar Todos os Tópicos
